@@ -1,0 +1,22 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { ALAMAT } from "../lib/config.js";
+---
+<Layout title="Lokasi">
+  <div class="max-w-4xl mx-auto px-4 py-10 space-y-6">
+    <h1 class="font-serif text-3xl font-semibold text-navy-950">Lokasi</h1>
+    <section class="bg-white rounded-2xl border border-cream-200 p-6 sm:p-8">
+      <p class="text-xs font-semibold tracking-wide text-navy-800/60 uppercase mb-2">Alamat</p>
+      <p class="text-navy-900">{ALAMAT}</p>
+    </section>
+    <section class="bg-white rounded-2xl border border-cream-200 overflow-hidden">
+      <iframe
+        title="Peta lokasi gereja"
+        class="w-full h-80 border-0"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        src={`https://www.google.com/maps?q=${encodeURIComponent(ALAMAT)}&output=embed`}
+      ></iframe>
+    </section>
+  </div>
+</Layout>
