@@ -1,0 +1,42 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { NAMA_GEREJA, URL_BULETIN } from "../lib/config.js";
+---
+
+<Layout title="Beranda">
+  <section class="bg-navy-950 text-cream-50 px-4 pt-10 pb-16">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="text-gold-400 text-xs sm:text-sm font-semibold tracking-wide uppercase mb-3">Tema Tahun 2026</p>
+      <h1 class="font-serif text-3xl sm:text-5xl font-semibold mb-4">Hidup Berdampak</h1>
+      <p class="font-serif italic text-cream-100/80 max-w-xl mx-auto">
+        Hidup Berarti Bekerja Memberi Buah &ndash; Filipi 1:22
+      </p>
+    </div>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-4 -mt-8 mb-12">
+    <div class="bg-white rounded-2xl border border-cream-200 p-6 sm:p-8 shadow-sm">
+      <p class="text-xs font-semibold tracking-wide text-navy-800/60 uppercase mb-2">Selamat Datang</p>
+      <p class="text-navy-900 leading-relaxed">
+        {NAMA_GEREJA} ada untuk menjadi serupa dengan Kristus serta memuliakan Allah dalam
+        seluruh aspek kehidupannya dan menjadi gereja yang missioner, serta siap menyambut
+        kedatangan Kristus.
+      </p>
+      <a href="/tentang-kami/visi-misi-value" class="inline-block mt-4 text-navy-700 font-medium text-sm">
+        Baca visi &amp; misi selengkapnya &rarr;
+      </a>
+    </div>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-4 pb-16">
+    <div class="bg-gold-500 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        <p class="font-serif text-xl font-semibold text-navy-950">Buletin Mingguan</p>
+        <p class="text-navy-900/80 text-sm">Jadwal ibadah, petugas pelayanan, dan laporan keuangan setiap minggu.</p>
+      </div>
+      <a href={URL_BULETIN} class="flex-shrink-0 bg-navy-950 text-white font-medium px-5 py-3 rounded-xl">
+        Buka Buletin &rarr;
+      </a>
+    </div>
+  </section>
+</Layout>
