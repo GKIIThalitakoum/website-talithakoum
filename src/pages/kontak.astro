@@ -1,0 +1,57 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Kontak">
+  <div class="max-w-4xl mx-auto px-4 py-10 space-y-6">
+    <h1 class="font-serif text-3xl font-semibold text-navy-950 mb-1">Kontak</h1>
+    <p class="text-navy-800/60 mb-4">Hubungi Badan Pengurus Jemaat untuk pertanyaan pelayanan</p>
+
+    <div id="app" class="space-y-3">
+      <div class="skeleton h-16 rounded-xl"></div>
+      <div class="skeleton h-16 rounded-xl"></div>
+      <div class="skeleton h-16 rounded-xl"></div>
+    </div>
+
+    <p class="text-sm text-navy-800/60 pt-4">
+      Lihat halaman <a href="/lokasi" class="text-navy-700 font-medium underline">Lokasi</a> untuk alamat dan peta gereja.
+    </p>
+  </div>
+</Layout>
+
+<script>
+  import { getKepengurusan } from "../lib/sheets.js";
+
+  function escapeHtml(str: string) {
+    const div = document.createElement("div");
+    div.textContent = str ?? "";
+    return div.innerHTML;
+  }
+
+  async function render() {
+    const app = document.getElementById("app")!;
+    try {
+      const rows = await getKepengurusan();
+      if (rows.length === 0) {
+        app.innerHTML = `<p class="text-navy-800/60">Data pengurus belum tersedia.</p>`;
+        return;
+      }
+      app.innerHTML = rows
+        .map(
+          (r) => `
+        <div class="bg-white rounded-xl border border-cream-200 p-4 flex items-center justify-between gap-3">
+          <div>
+            <p class="text-xs text-navy-800/50 uppercase tracking-wide">${escapeHtml(r.jabatan)}</p>
+            <p class="font-serif text-lg text-navy-950">${escapeHtml(r.nama)}</p>
+          </div>
+          ${r.no_telepon ? `<a href="https://wa.me/62${escapeHtml(r.no_telepon.replace(/\D/g, "").replace(/^0/, ""))}" class="flex-shrink-0 text-sm text-navy-700 font-medium border border-cream-200 rounded-lg px-3 py-2">${escapeHtml(r.no_telepon)}</a>` : ""}
+        </div>`
+        )
+        .join("");
+    } catch (err) {
+      app.innerHTML = `<p class="text-navy-800/60 text-sm">${escapeHtml(err instanceof Error ? err.message : String(err))}</p>`;
+    }
+  }
+
+  render();
+</script>
