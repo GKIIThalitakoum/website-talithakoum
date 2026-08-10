@@ -1,0 +1,136 @@
+---
+import "../styles/global.css";
+import { NAMA_GEREJA, ALAMAT, URL_BULETIN } from "../lib/config.js";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+const path = Astro.url.pathname;
+
+const navItems = [
+  { href: "/", label: "Home" },
+  {
+    label: "Tentang Kami",
+    children: [
+      { href: "/tentang-kami/sejarah", label: "Sejarah" },
+      { href: "/tentang-kami/mengenal-gembala", label: "Mengenal Gembala" },
+      { href: "/tentang-kami/visi-misi-value", label: "Visi, Misi & Value" },
+    ],
+  },
+  {
+    label: "Pelayanan",
+    children: [
+      { href: "/pelayanan/pelayanan-jemaat", label: "Pelayanan Jemaat" },
+      { href: "/pelayanan/pengembangan-jemaat", label: "Pengembangan Jemaat" },
+      { href: "/pelayanan/ibadah", label: "Ibadah" },
+      { href: "/pelayanan/misi-penginjilan", label: "Misi & Penginjilan" },
+    ],
+  },
+  {
+    label: "Info",
+    children: [
+      { href: "/info/event", label: "Event" },
+      { href: "/info/berita", label: "Berita" },
+      { href: "/info/artikel", label: "Artikel" },
+      { href: "/info/testimoni", label: "Testimoni" },
+      { href: "/info/gallery-foto", label: "Gallery Foto" },
+    ],
+  },
+  {
+    label: "Media",
+    children: [
+      { href: "/media/khotbah-youtube", label: "Khotbah YouTube" },
+      { href: "/media/renungan-harian-audio", label: "Renungan Harian Audio" },
+    ],
+  },
+  { href: "/lokasi", label: "Lokasi" },
+  { href: "/kontak", label: "Kontak" },
+];
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} · {NAMA_GEREJA}</title>
+    <meta name="description" content={`Situs resmi ${NAMA_GEREJA}`} />
+    <meta name="theme-color" content="#0f1f3d" />
+  </head>
+  <body class="font-sans text-navy-950 min-h-screen flex flex-col">
+    <header class="bg-navy-950 text-cream-50 sticky top-0 z-50">
+      <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+        <a href="/" class="flex items-center gap-2.5 min-w-0">
+          <span class="w-9 h-9 rounded-full bg-gold-500 flex items-center justify-center flex-shrink-0">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0f1f3d" stroke-width="2.5" stroke-linecap="round"><path d="M12 3v18M6 8h12"/></svg>
+          </span>
+          <span class="font-serif text-sm sm:text-base font-medium leading-tight truncate">{NAMA_GEREJA}</span>
+        </a>
+
+        <div class="flex items-center gap-2 flex-shrink-0">
+          <a href={URL_BULETIN} class="hidden sm:block bg-gold-500 text-navy-950 text-sm font-medium px-3 py-2 rounded-lg">
+            Buletin
+          </a>
+          <details class="relative">
+            <summary class="list-none cursor-pointer w-10 h-10 rounded-lg border border-white/20 flex items-center justify-center [&::-webkit-details-marker]:hidden">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+            </summary>
+            <nav
+              class="absolute right-0 mt-2 w-72 max-h-[75vh] overflow-y-auto bg-white text-navy-950 rounded-xl shadow-xl border border-cream-200 p-2"
+              aria-label="Navigasi utama"
+            >
+              <a href={URL_BULETIN} class="sm:hidden block px-3 py-2 rounded-lg bg-gold-500 text-navy-950 font-medium text-sm mb-1">
+                Buletin Mingguan &rarr;
+              </a>
+              {
+                navItems.map((item) => {
+                  if (!item.children) {
+                    const active = item.href === "/" ? path === "/" : path.startsWith(item.href);
+                    return (
+                      <a href={item.href}
+                        class={`block px-3 py-2 rounded-lg text-sm ${active ? "bg-cream-100 font-medium" : "text-navy-800"}`}
+                      >
+                        {item.label}
+                      </a>
+                    );
+                  }
+                  return (
+                    <div class="mb-1">
+                      <p class="px-3 pt-2 pb-1 text-xs font-semibold text-navy-800/50 uppercase tracking-wide">
+                        {item.label}
+                      </p>
+                      {item.children.map((child) => {
+                        const active = path.startsWith(child.href);
+                        return (
+                          <a href={child.href}
+                            class={`block px-3 py-1.5 ml-2 rounded-lg text-sm ${active ? "bg-cream-100 font-medium" : "text-navy-800/80"}`}
+                          >
+                            {child.label}
+                          </a>
+                        );
+                      })}
+                    </div>
+                  );
+                })
+              }
+            </nav>
+          </details>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex-1 w-full">
+      <slot />
+    </main>
+
+    <footer class="bg-navy-950 text-cream-100/80 text-sm mt-12">
+      <div class="max-w-4xl mx-auto px-4 py-8 space-y-1">
+        <p class="font-serif text-white text-base mb-2">{NAMA_GEREJA}</p>
+        <p>{ALAMAT}</p>
+        <p class="pt-3 text-xs text-cream-100/50">© {new Date().getFullYear()} {NAMA_GEREJA}</p>
+      </div>
+    </footer>
+  </body>
+</html>
