@@ -1,0 +1,22 @@
+---
+interface Props {
+  judul: string;
+  kebutuhan: string;
+}
+const { judul, kebutuhan } = Astro.props;
+---
+
+<div class="max-w-4xl mx-auto px-4 py-16 text-center">
+  <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-cream-100 mb-4">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0f1f3d" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 7v5l3 2" />
+    </svg>
+  </div>
+  <h1 class="font-serif text-2xl sm:text-3xl font-semibold text-navy-950 mb-2">{judul}</h1>
+  <p class="text-gold-600 font-medium text-sm mb-6">Segera Hadir</p>
+  <p class="text-navy-800/60 max-w-md mx-auto text-sm leading-relaxed">
+    Halaman ini menunggu: <span class="text-navy-800">{kebutuhan}</span>
+  </p>
+  <a href="/" class="inline-block mt-8 text-navy-700 font-medium text-sm">&larr; Kembali ke Beranda</a>
+</div>
