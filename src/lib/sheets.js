@@ -1,7 +1,7 @@
 // Sumber data yang sama dengan proyek buletin (satu sumber kebenaran untuk
 // daftar Badan Pengurus, supaya tidak perlu diperbarui dua tempat berbeda).
 const PUBLISHED_BASE_URL =
-  "https://docs.google.com/spreadsheets/d/e/2PACX-1vRGAEeE3Krym8T5OSZU28lC8Wzs3kK70mKUHwq3RGnMDaCiaoo_gGy0EwY1CZDGPa7gVmb7igOj9nc0/pub";
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vQg0ONima2vJWIslzAVaW8FvCJybwP3KdroyAmwGIEU6U6DuRGjJPjYhFwd1CbeY7vxZhJXpVgqq0pf/pub";
 const GID_KONTAK_PENGURUS = "1083480543";
 
 function parseCsv(text) {
