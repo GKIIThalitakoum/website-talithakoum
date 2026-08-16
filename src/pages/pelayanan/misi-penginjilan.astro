@@ -1,7 +1,143 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import SegeraHadir from "../../components/SegeraHadir.astro";
+
+const foto = [
+  {
+    src: "/foto-misi-penginjilan/foto-1.jpeg",
+    alt: "Rombongan jemaat berfoto bersama di lahan Pos PI Merayaq",
+    caption: "Peninjauan lahan Pos PI Merayaq",
+  },
+  {
+    src: "/foto-misi-penginjilan/foto-2.jpeg",
+    alt: "Rombongan jemaat di depan bangunan gereja Pos PI Merayaq yang tertunda pembangunannya",
+    caption: "Pengecekan gedung gereja Pos PI yang tertunda ±4 tahun",
+  },
+  {
+    src: "/foto-misi-penginjilan/foto-3.jpeg",
+    alt: "Ibu-ibu jemaat beristirahat dan bersekutu di sela kegiatan",
+    caption: "Persekutuan di sela kegiatan",
+  },
+  {
+    src: "/foto-misi-penginjilan/foto-4.jpeg",
+    alt: "Bapak-bapak jemaat beristirahat sambil bersekutu",
+    caption: "Kebersamaan rombongan Jumpa Pos",
+  },
+  {
+    src: "/foto-misi-penginjilan/foto-5.jpeg",
+    alt: "Persiapan logistik dan konsumsi rombongan misi",
+    caption: "Persiapan logistik rombongan",
+  },
+  {
+    src: "/foto-misi-penginjilan/foto-6.jpeg",
+    alt: "Sembako hasil lelang jemaat untuk pendanaan kegiatan misi",
+    caption: "Sembako hasil lelang jemaat sebagai dana kegiatan",
+  },
+];
 ---
+
 <Layout title="Misi & Penginjilan">
-  <SegeraHadir judul="Misi & Penginjilan" kebutuhan="cerita dan perkembangan misi yang didukung jemaat (mis. misi Vietnam, Thailand, Laos)." />
+  <section class="bg-navy-950 text-cream-50 px-4 pt-10 pb-14">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="text-gold-400 text-xs sm:text-sm font-semibold tracking-wide uppercase mb-3">Bulan Misi GKII Nasional 2026</p>
+      <h1 class="font-serif text-3xl sm:text-4xl font-semibold mb-4">Berjumpa dengan Pos PI Merayaq</h1>
+      <p class="font-serif italic text-cream-100/80 max-w-xl mx-auto">
+        "Bapa Mengutus Aku, Kini Aku Mengutus Kamu" &ndash; Yohanes 20:21
+      </p>
+    </div>
+  </section>
+
+  <div class="max-w-4xl mx-auto px-4 -mt-8 pb-16 space-y-6">
+    <section class="bg-white rounded-2xl border border-cream-200 p-6 sm:p-8 shadow-sm">
+      <dl class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
+        <div>
+          <dt class="text-navy-800/50 uppercase tracking-wide text-xs mb-1">Kegiatan</dt>
+          <dd class="text-navy-950 font-medium">Berjumpa (Jumpa Pos)</dd>
+        </div>
+        <div>
+          <dt class="text-navy-800/50 uppercase tracking-wide text-xs mb-1">Lokasi</dt>
+          <dd class="text-navy-950 font-medium">Pos PI Merayaq, Kec. Mook Manaar Bulatn</dd>
+        </div>
+        <div>
+          <dt class="text-navy-800/50 uppercase tracking-wide text-xs mb-1">Waktu</dt>
+          <dd class="text-navy-950 font-medium">14&ndash;15 Agustus 2026</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="bg-white rounded-2xl border border-cream-200 p-6 sm:p-8 space-y-4 text-navy-900 leading-relaxed">
+      <p>
+        Dalam rangka memperingati Bulan Misi GKII Nasional, GKII Jemaat Talitha Koum Sendawar
+        mengadakan kegiatan <strong>"Berjumpa" (Jumpa Pos)</strong> &mdash; kunjungan pelayanan ke
+        Pos PI Merayaq, Kecamatan Mook Manaar Bulatn, yang berlangsung selama dua hari,
+        14&ndash;15 Agustus 2026.
+      </p>
+      <p>
+        Kegiatan ini merupakan bagian dari penuntasan Amanat Agung Yesus Kristus, sebagai wujud
+        nyata pelaksanaan misi sedunia dan pekabaran Injil (PI) yang menjadi tugas yang
+        dipercayakan Tuhan Yesus kepada setiap orang percaya. Jumpa Pos kali ini terbuka bagi
+        seluruh jemaat lintas kategori usia &mdash; Perkaria, Perkauan, Pemuda, hingga Sekolah
+        Minggu &mdash; sebagai bentuk keterlibatan bersama seluruh anggota keluarga besar GKII
+        Talitha Koum Sendawar.
+      </p>
+      <p>
+        Pendanaan kegiatan digalang secara swadaya melalui iuran seluruh anggota jemaat, dalam
+        bentuk lelang sembako dan sumbangan tunai &mdash; mencerminkan semangat gotong royong dan
+        kepedulian jemaat terhadap pelayanan misi.
+      </p>
+      <p>
+        Selama kunjungan, rombongan melaksanakan ibadah misi bersama di Pos PI Merayaq, sekaligus
+        melakukan pembersihan dan pengecekan lokasi gedung gereja Pos PI yang pembangunannya
+        sempat tertunda selama kurang lebih empat tahun. Momen ini menjadi pengingat sekaligus
+        dorongan semangat bagi jemaat untuk terus mendukung penyelesaian pembangunan tempat
+        ibadah tersebut.
+      </p>
+    </section>
+
+    <section class="bg-navy-950 text-cream-50 rounded-2xl p-6 sm:p-8">
+      <p class="text-gold-400 text-xs font-semibold tracking-wide uppercase mb-3 text-center">Tema Bulan Misi Nasional</p>
+      <p class="font-serif text-xl sm:text-2xl text-center mb-1">"Bapa Mengutus Aku, Kini Aku Mengutus Kamu"</p>
+      <p class="text-cream-100/70 text-sm text-center mb-6">Yohanes 20:21</p>
+      <div class="grid sm:grid-cols-3 gap-4 text-sm">
+        <div class="bg-white/5 rounded-xl p-4">
+          <p class="font-semibold text-gold-400 mb-1">Dasar Pengutusan</p>
+          <p class="text-cream-100/80">Meneladani Kristus, bahwa setiap orang percaya dipanggil dan diutus secara aktif, bukan hanya tugas pendeta atau gembala.</p>
+        </div>
+        <div class="bg-white/5 rounded-xl p-4">
+          <p class="font-semibold text-gold-400 mb-1">Peran Aktif Jemaat</p>
+          <p class="text-cream-100/80">Mendorong partisipasi seluruh warga jemaat dalam memberitakan Injil.</p>
+        </div>
+        <div class="bg-white/5 rounded-xl p-4">
+          <p class="font-semibold text-gold-400 mb-1">Pemanfaatan Media</p>
+          <p class="text-cream-100/80">Menekankan pemberitaan Injil melalui berbagai sarana, termasuk media digital di era saat ini.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <p class="text-xs font-semibold tracking-wide text-navy-800/60 uppercase mb-3">Dokumentasi Kegiatan</p>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+        {
+          foto.map((f) => (
+            <figure class="group relative aspect-square rounded-xl overflow-hidden border border-cream-200 bg-cream-100">
+              <img
+                src={f.src}
+                alt={f.alt}
+                loading="lazy"
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+              <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy-950/80 to-transparent text-cream-50 text-xs px-2 py-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                {f.caption}
+              </figcaption>
+            </figure>
+          ))
+        }
+      </div>
+    </section>
+
+    <p class="text-navy-800/70 text-sm italic text-center pt-2">
+      Melalui kegiatan Berjumpa ini, GKII Jemaat Talitha Koum Sendawar berharap semangat misi dan
+      pekabaran Injil terus hidup dan mengakar di tengah jemaat &mdash; sejalan dengan tema tahun
+      2026 gereja, "Hidup Berdampak."
+    </p>
+  </div>
 </Layout>
